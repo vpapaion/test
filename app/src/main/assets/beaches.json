@@ -1,0 +1,20 @@
+[
+  {"id":"achaia_kalogria","name":"Καλόγρια","area":"Αχαΐα","lat":38.1511,"lon":21.3668,"facingDeg":270,"note":"Δυτική έκθεση προς Ιόνιο"},
+  {"id":"achaia_lakopetra","name":"Λακόπετρα","area":"Αχαΐα","lat":38.2006,"lon":21.4098,"facingDeg":310,"note":"ΒΔ έκθεση"},
+  {"id":"patras_plaz","name":"Πλαζ Πατρών","area":"Πάτρα","lat":38.2704,"lon":21.7512,"facingDeg":300,"note":"Πατραϊκός κόλπος"},
+  {"id":"attica_vouliagmeni","name":"Βουλιαγμένη","area":"Αττική","lat":37.8145,"lon":23.7753,"facingDeg":220,"note":"Νοτιοδυτική έκθεση"},
+  {"id":"attica_schinia","name":"Σχοινιάς","area":"Αττική","lat":38.1462,"lon":24.0322,"facingDeg":90,"note":"Ανατολική έκθεση"},
+  {"id":"chalkidiki_kavourotrypes","name":"Καβουρότρυπες","area":"Χαλκιδική","lat":40.1287,"lon":23.9692,"facingDeg":90,"note":"Ανατολική έκθεση Σιθωνίας"},
+  {"id":"lefkada_porto_katsiki","name":"Πόρτο Κατσίκι","area":"Λευκάδα","lat":38.6028,"lon":20.5501,"facingDeg":250,"note":"Δυτική/ΝΔ έκθεση Ιονίου"},
+  {"id":"kefalonia_myrtos","name":"Μύρτος","area":"Κεφαλονιά","lat":38.3447,"lon":20.5366,"facingDeg":300,"note":"ΒΔ έκθεση Ιονίου"},
+  {"id":"crete_elafonisi","name":"Ελαφονήσι","area":"Χανιά, Κρήτη","lat":35.2718,"lon":23.5409,"facingDeg":240,"note":"ΝΔ έκθεση"},
+  {"id":"crete_falasarna","name":"Φαλάσαρνα","area":"Χανιά, Κρήτη","lat":35.4920,"lon":23.5793,"facingDeg":270,"note":"Δυτική έκθεση"},
+  {"id":"rhodes_tsambika","name":"Τσαμπίκα","area":"Ρόδος","lat":36.2315,"lon":28.1468,"facingDeg":90,"note":"Ανατολική έκθεση"},
+  {"id":"naxos_agios_prokopios","name":"Άγιος Προκόπιος","area":"Νάξος","lat":37.0751,"lon":25.3503,"facingDeg":260,"note":"Δυτική έκθεση"},
+  {"id":"mykonos_elia","name":"Ελιά","area":"Μύκονος","lat":37.4218,"lon":25.3924,"facingDeg":180,"note":"Νότια έκθεση"},
+  {"id":"santorini_perissa","name":"Περίσσα","area":"Σαντορίνη","lat":36.3545,"lon":25.4730,"facingDeg":120,"note":"ΝΑ έκθεση"},
+  {"id":"milos_sarakiniko","name":"Σαρακήνικο","area":"Μήλος","lat":36.7434,"lon":24.4607,"facingDeg":350,"note":"Βόρεια έκθεση"},
+  {"id":"skiathos_koukounaries","name":"Κουκουναριές","area":"Σκιάθος","lat":39.1479,"lon":23.4015,"facingDeg":220,"note":"ΝΔ έκθεση"},
+  {"id":"messinia_voidokilia","name":"Βοϊδοκοιλιά","area":"Μεσσηνία","lat":36.9673,"lon":21.6613,"facingDeg":260,"note":"Δυτική έκθεση"},
+  {"id":"epirus_monolithi","name":"Μονολίθι","area":"Πρέβεζα","lat":39.0391,"lon":20.6572,"facingDeg":260,"note":"Δυτική έκθεση Ιονίου"}
+]
