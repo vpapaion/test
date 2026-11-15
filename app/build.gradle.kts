@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "gr.filehaven.app"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "gr.filehaven.app"
