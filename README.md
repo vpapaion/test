@@ -1,82 +1,45 @@
-# Παραλίες για Μπάνιο - BeachSwimAdvisor
+# FileHaven — Android file manager
 
-Πρώτη απλή Android εφαρμογή που εκτιμά αν μια παραλία είναι κατάλληλη για μπάνιο με βάση:
+An open-source, local-first file manager built with **Kotlin + Jetpack Compose + Material 3**.
 
-- θερμοκρασία αέρα,
-- αισθητή θερμοκρασία,
-- θερμοκρασία θάλασσας,
-- ένταση και κατεύθυνση ανέμου,
-- πιθανότητα βροχόπτωσης,
-- ύψος κύματος.
+## Features
 
-Η εφαρμογή χρησιμοποιεί:
+- Choose and remember a folder using Android's **Storage Access Framework** (SAF).
+- Browse nested folders, open or share documents, and see file metadata.
+- Search the current folder, sort by name / date / size, and refresh.
+- Create folders and text files; rename or delete files and folders (with confirmation).
+- Copy or cut a file/folder and paste it into the current folder (supports recursive folders).
+- Dark theme. No ads, network permission, analytics, or unrestricted storage permission.
 
-- Open-Meteo Weather API
-- Open-Meteo Marine API
+### Important Android storage constraints
 
-Δεν απαιτεί API key για την πρώτη μη εμπορική/δοκιμαστική χρήση.
+This app manages **only the folder tree you explicitly grant** and its accessible descendants. Android 11 and later restrict choosing certain protected folders (for example the root of internal storage, `Android/data`, and sometimes `Download`). This is an Android platform restriction, not a defect. For a general manager across all device storage, a different access model and greater permissions would be needed.
 
-## Τι περιέχει η πρώτη έκδοση
+Copy/cut/paste is provider-dependent and is implemented as streaming copy followed by delete for a cut. The copy stage is cleaned up on failure; **moving is not an atomic operation**, and partial removal may still occur if a provider fails during deletion. Do not use this first version for critical or irreplaceable data without a backup.
 
-- Απλό native Android app σε Java.
-- Δεν χρησιμοποιεί Compose ή εξωτερικές βιβλιοθήκες.
-- Τοπικό αρχείο `beaches.json` με ενδεικτικές ελληνικές παραλίες.
-- Υπολογισμό score 0-100.
-- Ένδειξη: Πολύ κατάλληλη / Κατάλληλη / Μέτρια / Όχι καλή επιλογή.
-- GitHub Actions workflow για αυτόματη παραγωγή APK.
+## Build
 
-## Πώς βγάζω APK από GitHub
+Open this directory in recent Android Studio, let Gradle sync, and run `app` on an emulator or device with **Android 8.0 (API 26)+**. Requires JDK 17 and Android SDK 36. CI builds with **Gradle 9.6.0** and **Android Gradle Plugin 9.5.0**.
 
-1. Πηγαίνετε στο tab **Actions**.
-2. Επιλέξτε το workflow **Build Android APK**.
-3. Πατήστε **Run workflow**.
-4. Όταν ολοκληρωθεί, ανοίξτε το τελευταίο run.
-5. Κατεβάστε από το κάτω μέρος το artifact **BeachSwimAdvisor-debug-apk**.
-6. Μέσα στο ZIP θα βρείτε το `app-debug.apk`.
+From a machine with Gradle 9.6.0 installed:
 
-Το APK που παράγεται είναι debug APK, κατάλληλο για δοκιμές σε κινητό Android.
-
-## Πώς το τρέχω τοπικά
-
-1. Κάντε clone ή download ZIP το repository.
-2. Ανοίξτε τον φάκελο στο Android Studio.
-3. Περιμένετε να ολοκληρωθεί το Gradle sync.
-4. Πατήστε **Run**.
-
-## Πού προσθέτω παραλίες
-
-Στο αρχείο:
-
-```text
-app/src/main/assets/beaches.json
+```bash
+gradle :app:assembleDebug
 ```
 
-Κάθε παραλία έχει μορφή:
+Debug APK output: `app/build/outputs/apk/debug/app-debug.apk`.
 
-```json
-{
-  "id": "unique_id",
-  "name": "Όνομα παραλίας",
-  "area": "Περιοχή",
-  "lat": 38.1511,
-  "lon": 21.3668,
-  "facingDeg": 270,
-  "note": "Σύντομη σημείωση"
-}
-```
+On GitHub, visit **Actions → Build Android APK → latest successful run → Artifacts** to download the debug APK. It is a debug build for testing, not a signed Play Store release.
 
-Το `facingDeg` είναι ο περίπου προσανατολισμός της παραλίας προς τη θάλασσα:
+## Architecture
 
-- 0 = Βορράς
-- 90 = Ανατολή
-- 180 = Νότος
-- 270 = Δύση
+- `MainActivity.kt`: Compose screen, SAF folder picker, persistent permission, navigation, background operations.
+- `FileOperations.kt`: SAF operations, collision-safe streaming recursive copy and cut.
 
-Χρησιμοποιείται για να εκτιμηθεί αν ο άνεμος έρχεται από τη θάλασσα προς την ακτή ή από τη στεριά προς τη θάλασσα.
+## Privacy / safety
 
-## Περιορισμοί πρώτης έκδοσης
+The application requests no internet and no blanket storage permissions. It does not send your data to GitHub or elsewhere. Deletions are permanent as far as the selected document provider is concerned; there is no recycle bin yet.
 
-- Η λίστα παραλιών είναι ενδεικτική και όχι πλήρης.
-- Οι συντεταγμένες και ο προσανατολισμός κάποιων παραλιών είναι προσεγγιστικά.
-- Η εφαρμογή δεν ελέγχει μικροβιολογική ποιότητα νερού σε πραγματικό χρόνο.
-- Δεν αντικαθιστά επίσημες ανακοινώσεις, σημαίες ναυαγοσώστη ή τοπικές οδηγίες ασφάλειας.
+## Planned improvements
+
+Multi-select, thumbnails, breadcrumbs, more comprehensive file search, and integration tests against local and cloud document providers.
