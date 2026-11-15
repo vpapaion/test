@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "gr.filehaven.app"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "gr.filehaven.app"
@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.09.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.foundation:foundation")

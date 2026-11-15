@@ -19,7 +19,7 @@ Copy/cut/paste is provider-dependent and is implemented as streaming copy follow
 
 ## Build
 
-Open this directory in recent Android Studio, let Gradle sync, and run `app` on an emulator or device with **Android 8.0 (API 26)+**. Requires JDK 17 and Android SDK 37. CI builds with **Gradle 9.6.0** and **Android Gradle Plugin 9.5.0**.
+Open this directory in recent Android Studio, let Gradle sync, and run `app` on an emulator or device with **Android 8.0 (API 26)+**. Requires JDK 17 and Android SDK 36. CI builds with **Gradle 9.6.0** and **Android Gradle Plugin 9.5.0**.
 
 From a machine with Gradle 9.6.0 installed:
 
